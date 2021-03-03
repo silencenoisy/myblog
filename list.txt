@@ -1,0 +1,272 @@
+卷 Data 的文件夹 PATH 列表
+卷序列号为 6471-C176
+D:.
+│  list.txt
+│  manage.py
+│  README.md
+│  requirements.txt
+│
+├─.idea
+│  │  blog.iml
+│  │  misc.xml
+│  │  modules.xml
+│  │  workspace.xml
+│  │
+│  └─inspectionProfiles
+│          profiles_settings.xml
+│          
+├─app
+│  │  config.py
+│  │  models.py
+│  │  testmodel.py
+│  │  __init__.py
+│  │  
+│  ├─admin
+│  │  │  form.py
+│  │  │  view.py
+│  │  │  __init__.py
+│  │  │  
+│  │  ├─static
+│  │  └─__pycache__
+│  │          view.cpython-37.pyc
+│  │          __init__.cpython-37.pyc
+│  │          
+│  ├─home
+│  │  │  form.py
+│  │  │  view.py
+│  │  │  __init__.py
+│  │  │  
+│  │  ├─static
+│  │  └─__pycache__
+│  │          form.cpython-37.pyc
+│  │          view.cpython-37.pyc
+│  │          __init__.cpython-37.pyc
+│  │
+│  ├─models
+│  ├─static
+│  │  ├─css
+│  │  │      component.css
+│  │  │      demo.css
+│  │  │      home_index.css
+│  │  │      normalize.css
+│  │  │
+│  │  ├─dplayer
+│  │  │  │  .eslintignore
+│  │  │  │  .eslintrc
+│  │  │  │  .gitignore
+│  │  │  │  .prettierignore
+│  │  │  │  .prettierrc
+│  │  │  │  .travis.yml
+│  │  │  │  LICENSE
+│  │  │  │  package.json
+│  │  │  │  README.md
+│  │  │  │  yarn.lock
+│  │  │  │
+│  │  │  ├─.github
+│  │  │  │      FUNDING.yml
+│  │  │  │      ISSUE_TEMPLATE.md
+│  │  │  │
+│  │  │  ├─demo
+│  │  │  │      demo.css
+│  │  │  │      demo.js
+│  │  │  │      index.html
+│  │  │  │      modernizr.js
+│  │  │  │
+│  │  │  ├─dist
+│  │  │  │      DPlayer.min.js
+│  │  │  │      DPlayer.min.js.map
+│  │  │  │
+│  │  │  ├─docs
+│  │  │  │  │  ecosystem.md
+│  │  │  │  │  guide.md
+│  │  │  │  │  README.md
+│  │  │  │  │  support.md
+│  │  │  │  │
+│  │  │  │  ├─.vuepress
+│  │  │  │  │  │  config.js
+│  │  │  │  │  │
+│  │  │  │  │  ├─components
+│  │  │  │  │  │      DPlayer.vue
+│  │  │  │  │  │
+│  │  │  │  │  ├─public
+│  │  │  │  │  │      CNAME
+│  │  │  │  │  │      logo.png
+│  │  │  │  │  │
+│  │  │  │  │  └─styles
+│  │  │  │  │          index.styl
+│  │  │  │  │          palette.styl
+│  │  │  │  │
+│  │  │  │  └─zh
+│  │  │  │          ecosystem.md
+│  │  │  │          guide.md
+│  │  │  │          README.md
+│  │  │  │          support.md
+│  │  │  │
+│  │  │  ├─src
+│  │  │  │  ├─assets
+│  │  │  │  │      camera.svg
+│  │  │  │  │      comment-off.svg
+│  │  │  │  │      comment.svg
+│  │  │  │  │      full-web.svg
+│  │  │  │  │      full.svg
+│  │  │  │  │      loading.svg
+│  │  │  │  │      pallette.svg
+│  │  │  │  │      pause.svg
+│  │  │  │  │      play.svg
+│  │  │  │  │      right.svg
+│  │  │  │  │      send.svg
+│  │  │  │  │      setting.svg
+│  │  │  │  │      subtitle.svg
+│  │  │  │  │      volume-down.svg
+│  │  │  │  │      volume-off.svg
+│  │  │  │  │      volume-up.svg
+│  │  │  │  │
+│  │  │  │  ├─css
+│  │  │  │  │      balloon.scss
+│  │  │  │  │      bezel.scss
+│  │  │  │  │      controller.scss
+│  │  │  │  │      danmaku.scss
+│  │  │  │  │      global.scss
+│  │  │  │  │      index.scss
+│  │  │  │  │      info-panel.scss
+│  │  │  │  │      logo.scss
+│  │  │  │  │      menu.scss
+│  │  │  │  │      notice.scss
+│  │  │  │  │      player.scss
+│  │  │  │  │      subtitle.scss
+│  │  │  │  │      video.scss
+│  │  │  │  │
+│  │  │  │  ├─js
+│  │  │  │  │      api.js
+│  │  │  │  │      bar.js
+│  │  │  │  │      bezel.js
+│  │  │  │  │      comment.js
+│  │  │  │  │      contextmenu.js
+│  │  │  │  │      controller.js
+│  │  │  │  │      danmaku.js
+│  │  │  │  │      events.js
+│  │  │  │  │      fullscreen.js
+│  │  │  │  │      hotkey.js
+│  │  │  │  │      i18n.js
+│  │  │  │  │      icons.js
+│  │  │  │  │      index.js
+│  │  │  │  │      info-panel.js
+│  │  │  │  │      options.js
+│  │  │  │  │      player.js
+│  │  │  │  │      setting.js
+│  │  │  │  │      subtitle.js
+│  │  │  │  │      template.js
+│  │  │  │  │      thumbnails.js
+│  │  │  │  │      timer.js
+│  │  │  │  │      user.js
+│  │  │  │  │      utils.js
+│  │  │  │  │
+│  │  │  │  └─template
+│  │  │  │          player.art
+│  │  │  │          video.art
+│  │  │  │
+│  │  │  └─webpack
+│  │  │          dev.config.js
+│  │  │          prod.config.js
+│  │  │
+│  │  ├─images
+│  │  │      adminicon.png
+│  │  │      admin_head.png
+│  │  │      backgroung1.jpg
+│  │  │      bkf.png
+│  │  │      bkg.png
+│  │  │      bkw.png
+│  │  │      bkx.png
+│  │  │      bky.png
+│  │  │      bkz.png
+│  │  │      bl_.png
+│  │  │      BtSoft.zip
+│  │  │      demo-1-bg.jpg
+│  │  │      flask.zip
+│  │  │      head1.png
+│  │  │      login_ico.png
+│  │  │      myicon.png
+│  │  │      no-data.png
+│  │  │      putty_0.74.zip
+│  │  │      Python-3.7.4.tar.xz
+│  │  │      searchP.png
+│  │  │      xftp_89185.zip
+│  │  │
+│  │  ├─js
+│  │  │  │  admin.js
+│  │  │  │  demo-1.js
+│  │  │  │  EasePack.min.js
+│  │  │  │  html5.js
+│  │  │  │  jQuery.min.js
+│  │  │  │  layer.js
+│  │  │  │  login.js
+│  │  │  │  rAF.js
+│  │  │  │  TweenLite.min.js
+│  │  │  │
+│  │  │  ├─mobile
+│  │  │  │  │  layer.js
+│  │  │  │  │
+│  │  │  │  └─need
+│  │  │  │          layer.css
+│  │  │  │
+│  │  │  └─theme
+│  │  │      └─default
+│  │  │              icon-ext.png
+│  │  │              icon.png
+│  │  │              layer.css
+│  │  │              loading-0.gif
+│  │  │              loading-1.gif
+│  │  │              loading-2.gif
+│  │  │
+│  │  └─uploads
+│  │      ├─blogs
+│  │      │      default_blog.png
+│  │      │
+│  │      └─users
+│  │              backgroung1.jpg
+│  │              default.png
+│  │              default_blog.png
+│  │              myicon.png
+│  │              
+│  ├─templates
+│  │  ├─admin
+│  │  │      adminhome.html
+│  │  │      index.html
+│  │  │      login.html
+│  │  │      order.html
+│  │  │      userChange.html
+│  │  │      
+│  │  ├─home
+│  │  │      404.html
+│  │  │      blogs.html
+│  │  │      colManage.html
+│  │  │      commentManage.html
+│  │  │      home.html
+│  │  │      index.html
+│  │  │      movie.html
+│  │  │      newBlog.html
+│  │  │      userBlog.html
+│  │  │      userhome.html
+│  │  │      video.html
+│  │  │      
+│  │  └─ul
+│  │          usermenu.html
+│  │
+│  └─__pycache__
+│          config.cpython-37.pyc
+│          models.cpython-37.pyc
+│          __init__.cpython-37.pyc
+│
+└─venv
+    │  pyvenv.cfg
+    │
+    ├─Include
+    ├─Lib
+    └─Scripts
+            activate
+            activate.bat
+            Activate.ps1
+            deactivate.bat
+            python.exe
+            pythonw.exe
+            

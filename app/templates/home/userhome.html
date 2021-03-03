@@ -1,0 +1,40 @@
+{% extends 'home/index.html'%}
+
+{% block content %}
+<div class="newBlog_warp">
+    <div class="blog_blank"></div>
+    <div class="login-item"><span class="login_text">用户名：<span
+            class="large-content">{{ session['username'] }}</span></span>
+    </div>
+    <div class="login-item">
+        <span class="login_text">头像</span>
+        <img src="{{ url_for('static',filename='uploads/users/'+session['headName']) }}"
+             id="user_head_pic" class="user_head_pic" onclick="ClickInputHead()">
+        <div>
+            <input type="file" id="InputHead" class="InputHead hide" accept="image/jpg,image/jpeg,image/png,image/PNG"
+                   onchange="upload_head()"/>
+        </div>
+    </div>
+    <div class="login-item"><span class="login_text">新密码</span> <input type="password" class="InputPWD1"
+                                                                       placeholder="请输入新密码"/></div>
+    <div class="login-item"><span class="login_text">确认密码</span> <input type="password" class="InputPWD2"
+                                                                        placeholder="确认密码"/></div>
+    <div class="login-item"><span class="login_text">个人介绍</span> <input type="text" class="InputITD"
+                                                                        placeholder="个人介绍"
+                                                                        value="{{ session['introduce'] }}"/></div>
+    <div class="inline-div">
+        <div class="login-item"><a href="javascript:;" onclick="ChangeHead()">修改头像</a></div>
+        <div class="login-item"><a href="javascript:;" onclick="ChangePWD()">修改密码</a></div>
+        <div class="login-item"><a href="javascript:;" onclick="ChangeITD()">修改个人信息</a></div>
+        <div class="login-item"><a href="{{ url_for('home.newBlog',blog_id=0,user_id=session['id']) }}">写博客</a></div>
+        <div class="login-item"><a href="{{ url_for('home.userBlog') }}">管理博客</a></div>
+        <div class="login-item"><a href="{{ url_for('home.commentManage') }}">管理评论</a></div>
+        <div class="login-item"><a href="{{ url_for('home.colManage') }}">管理收藏</a></div>
+    </div>
+
+    <div class="List_wrap">
+        <div class="List_item">
+        </div>
+    </div>
+</div>
+{% endblock %}

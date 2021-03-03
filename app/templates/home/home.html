@@ -1,0 +1,72 @@
+{% extends 'home/index.html' %}
+
+{% block content %}
+<div class="warp indexWarp">
+    <div class="blog_blank2">
+    <div class="blog_show">
+        <div class="search-wrap">
+            <input type="text" id="InputSearch" class="InputSearch" placeholder="输入博客关键字"/>
+            <a href="javascript:;" onclick="SearchBlogKeyword()">
+                <img class="SearchImg" src="{{ url_for('static',filename='images/searchP.png') }}">
+            </a>
+        </div>
+        <div class="tag_show">
+            <table class="tag_show_table">
+                <td><a href="{{ url_for('home.index')}}" class="tag_href">全部</a></td>
+                {% for i in params['tags'] %}
+                <td><a href="{{ url_for('home.index',tag=i['id']) }}" class="tag_href">{{ i['tag'] }}</a></td>
+                {% endfor %}
+
+            </table>
+        </div>
+        <table class="blogs_show_table">
+            <div class="one_blog_show">
+                {% if params['noBlogData']: %}
+                <img class="no-data-img" src="{{ url_for('static',filename='images/no-data.png') }}">
+                {% endif %}
+                {% for i in range(params['len']): %}
+                {% if (i)%5==0 %}
+                <tr>
+                    <div class="blog_item_show">
+                        <td>
+                            <a class="blog_item_show_link" href="{{ url_for('home.blogs',blog_id=params['blog_data'][i]['blog_id']) }}">
+                                <div class="ImgDiv">
+                                    <img class="blog_item_show_pic" src="{{ url_for('static',filename='uploads/blogs/'+params['blog_data'][i]['url']) }}">
+                                </div>
+                                <span class="blog_item_show_title">{{ params['blog_data'][i]['title'] }}</span>
+                            </a>
+                        </td>
+                    </div>
+                {% elif (i+1==params['len'] or (i%5==4)) %}
+                    <div class="blog_item_show">
+                        <td>
+                            <a class="blog_item_show_link" href="{{ url_for('home.blogs',blog_id=params['blog_data'][i]['blog_id']) }}">
+                                <div>
+                                    <img class="blog_item_show_pic" src="{{ url_for('static',filename='uploads/blogs/'+params['blog_data'][i]['url']) }}">
+                                </div>
+                                <span class="blog_item_show_title">{{ params['blog_data'][i]['title'] }}</span>
+                            </a>
+                        </td>
+                    </div>
+                    </tr>
+                {% else %}
+                    <div class="blog_item_show">
+                        <td>
+                            <a class="blog_item_show_link" href="{{ url_for('home.blogs',blog_id=params['blog_data'][i]['blog_id']) }}">
+                                <div>
+                                    <img class="blog_item_show_pic" src="{{ url_for('static',filename='uploads/blogs/'+params['blog_data'][i]['url']) }}">
+                                </div>
+                                <span class="blog_item_show_title">{{ params['blog_data'][i]['title'] }}</span>
+                            </a>
+                        </td>
+                    </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+        </table>
+    </div>
+    </div>
+</div>
+
+{% endblock %}
