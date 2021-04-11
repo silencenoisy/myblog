@@ -1,6 +1,6 @@
 模拟博客网站
 =============
-## 目录
+##目录
 1. 项目描述
     * 名称
     * 版本
@@ -21,17 +21,17 @@
 >+ 模拟博客网站
 
 + ### 版本
->+ V1.0
->+ 更新时间：2021-3-5
+>+ V1.1
+>+ 更新时间：2021-4-11
 
-+ ### 功能
-   * 用户注册、登陆、个人信息修改
-   * 博客预览、上传、编辑
-   * 博客浏览、搜索
-   * 博客视频上传、视频弹幕发送
-   * 后台用户、博客评论等管理
++ ###功能
++ 用户注册、登陆、个人信息修改
++ 博客预览、上传、编辑
++ 博客浏览、搜索
++ 博客视频上传、视频弹幕发送
++ 后台用户、博客评论等管理
 
-+ ### 项目树
++ ### <span id='treez'>项目树</span>
 完整内容在->[list.txt](./list.txt)
 
 ```
@@ -39,10 +39,17 @@
 │  manage.py
 │  README.md
 │  requirements.txt
-│          
+|  uwsgi.ini
+|  uwsgi.pid
+|  redis.conf
+│     
+├─logs
+|  └─ uwsgi.log 
+|
 ├─app
 │  │  config.py
 │  │  models.py
+|  |  ErrorCode.py
 │  │  __init__.py
 │  │  
 │  ├─admin
@@ -55,6 +62,13 @@
 │  ├─home
 │  │  │  form.py
 │  │  │  view.py
+│  │  │  __init__.py
+│  │  │  
+│  │  └─static
+|  |
+│  ├─api
+│  │  │  form.py
+│  │  │  view2.py
 │  │  │  __init__.py
 │  │  │  
 │  │  └─static
@@ -192,7 +206,14 @@ python manage.py runserver
 ## 备注
 >+ 需要mysql数据库及redis数据库
 >+ 目前项目安全细节尚未完善
->+ 服务器部署尚未实现，只能安装本地环境
+
+
++ ### 2021.4.11更新
+>+ 项目部署在阿里云上(公安局审批还没搞)
+>+ nginx+uwsgi+flask
+>+ 域名：[http://lingshipu.ren](http://lingshipu.ren/)
+>+ 新增接口(与原项目仅有用户账户是相关的) 详见[aip文档](https://www.showdoc.com.cn/simuwuding)\(密码:yrdblog\)
+
 #### 作者：鼎
 
 
