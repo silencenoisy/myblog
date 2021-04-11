@@ -440,7 +440,7 @@ function SubmitBlog() {
         if (!ret['isSuccess']) {
             // $("#show").attr('value',+ ret['f'] +);
 
-            window.location.href = '/blogs/' + ret['blog_id'];
+            window.location.href = '/blogs/1/' + ret['blog_id'];
             layer.msg('上传成功');
 
         } else {
@@ -522,7 +522,7 @@ function ChangeBlog() {
     }).done(function (ret) {
         if (!ret['isSuccess']) {
             // $("#show").attr('value',+ ret['f'] +);
-            window.location.href = '/blogs/' + ret['blog_id'];
+            window.location.href = '/blogs/1/' + ret['blog_id'];
             layer.msg('修改成功');
         } else if (ret['isSuccess'] == 1) {
             layer.msg('标题重复');
@@ -604,15 +604,38 @@ function DelCollection(user_id, col_id) {
 
 function SearchBlogKeyword() {
     var keyword = $('#InputSearch').val();
-    var oUrl = location.href.toString();
-    var url = location.href
-    var re = eval('/(' + "keyword" + '=)([^&]*)/gi');
 
-    oUrl = oUrl.replace(re, "keyword" + '=' + keyword);
-    if (oUrl == url) {
-        oUrl = oUrl + "/?keyword=" + keyword
-    }
-    location.href = oUrl;
+    // var oUrl = location.href.toString();
+    // var url = location.href;
+    // var re1 = eval('/(' + "keyword" + '=)([^&]*)/gi');
+    //
+    // if(oUrl.search(re1)!=-1)
+    // oUrl = oUrl.replace(re1, "keyword" + '=' + keyword);
+    // if (oUrl == url) {
+    //         oUrl.replace('/(*)',"/?keyword=" + keyword);
+    //         oUrl = oUrl + "/?keyword=" + keyword;
+    // }
+    // else if(oUrl.indexOf("?")!=-1){
+    //         oUrl = oUrl +"&keyword=" + keyword;
+    // }
+    // location.href = oUrl;
+    var params = {
+        "keyword": keyword,
+        'url': window.location.href,
+    };
+    $.ajax({
+        url: "/getIndexArgs",
+        type: "post",
+        data: params,
+        dataType: "json",
+    }).done(function (ret) {
+        if (!ret['isSuccess']) {
+            // $("#show").attr('value',+ ret['f'] +);
+            window.location.href = ret['url'];
+        } else {
+            layer.msg('未知错误');
+        }
+    })
 
 
 }

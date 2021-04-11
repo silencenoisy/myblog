@@ -1,3 +1,13 @@
+// var csrftoken = $('meta[name=csrf-token]').attr('content')
+//
+//     $.ajaxSetup({
+//         beforeSend: function (xhr, settings) {
+//             if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
+//                 xhr.setRequestHeader("X-CSRFToken", csrftoken)
+//             }
+//         }
+//     })
+
 function MyLoginCheck() {
     var params = {
         "username": $("#adminName").val(),
@@ -16,9 +26,9 @@ function MyLoginCheck() {
         type: "post",
         data: params,
         dataType: "json",
+        // headers:{ "X-CSRFtoken":csrftoken},
     }).done(function (ret) {
-        if (!ret['isSuccess']) {
-
+        if (!ret['status']) {
             window.location.href = '/admin/';
             layer.msg('修改成功');
         } else if (ret['isSuccess'] == 1) {
@@ -41,6 +51,7 @@ function MyLogout() {
         type: "post",
         data: params,
         dataType: "json",
+        // headers:{ "X-CSRFtoken":csrftoken},
     }).done(function (ret) {
         if (!ret['isSuccess']) {
 
@@ -61,9 +72,10 @@ function ManageOrder(order) {
         type: "post",
         data: params,
         dataType: "json",
+        // headers:{ "X-CSRFtoken":csrftoken},
     }).done(function (ret) {
         if (!ret['isSuccess']) {
-            window.location.href = '/admin/order/' + ret['url'];
+            window.location.href = '/admin/order/' + ret['url']+"/1";
             OrderTagColor(order)
         } else if (ret['isSuccess'] == 12) {
             layer.msg('错误指令');
@@ -91,6 +103,7 @@ function AdminDeleteUser(user_id) {
         type: "post",
         data: params,
         dataType: "json",
+        // headers:{ "X-CSRFtoken":csrftoken},
     }).done(function (ret) {
         if (!ret['isSuccess']) {
             window.location.reload();
@@ -111,6 +124,7 @@ function AdminDeleteBlog(blog_id) {
         type: "post",
         data: params,
         dataType: "json",
+        // headers:{ "X-CSRFtoken":csrftoken},
     }).done(function (ret) {
         if (!ret['isSuccess']) {
             window.location.reload();
@@ -132,6 +146,7 @@ function AdminDeleteComment(comment_id) {
         type: "post",
         data: params,
         dataType: "json",
+        // headers:{ "X-CSRFtoken":csrftoken},
     }).done(function (ret) {
         if (!ret['isSuccess']) {
             window.location.reload();
@@ -153,6 +168,7 @@ function AdminDeleteTag(tag_id) {
         type: "post",
         data: params,
         dataType: "json",
+        // headers:{ "X-CSRFtoken":csrftoken},
     }).done(function (ret) {
         if (!ret['isSuccess']) {
             window.location.reload();
@@ -223,6 +239,7 @@ function CommentChange() {
         type: "post",
         data: params,
         dataType: "json",
+        // headers:{ "X-CSRFtoken":csrftoken},
     }).done(function (ret) {
         if (!ret['isSuccess']) {
             window.location.reload();
@@ -274,6 +291,7 @@ function TagChange() {
         type: "post",
         data: params,
         dataType: "json",
+        // headers:{ "X-CSRFtoken":csrftoken},
     }).done(function (ret) {
         if (!ret['isSuccess']) {
             window.location.reload();
@@ -316,6 +334,7 @@ function AdminChangeUser(user_id){
         type: "post",
         data: params,
         dataType: "json",
+        // headers:{ "X-CSRFtoken":csrftoken},
     }).done(function (ret) {
         if (!ret['isSuccess']) {
             window.location.reload();
