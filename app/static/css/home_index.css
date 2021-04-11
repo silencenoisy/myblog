@@ -393,3 +393,41 @@ body {
     color: black;
 }
 
+.disabled {
+pointer-events: none;
+}
+
+.ul_menu a{
+    text-decoration: none;
+    font-size: medium;
+}
+
+.ul_menu a:visited{
+    color: blue;
+}
+
+.ul_menu .disabled{
+    color: gray;
+}
+
+.ul_menu a:hover{
+    color: red;
+}
+
+.pagination{
+    background: white;
+}
+
+.beian{
+	padding-left: 35%;
+	margin-right: auto;
+	background: orange;
+}
+
+.beian a{
+	text-decoration: none;
+	color: red;
+}
+
+
+

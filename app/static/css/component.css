@@ -261,3 +261,14 @@ body{
     width: 60px;
     border-radius: 50%;
 }
+
+.beian{
+	padding-left: 35%;
+	margin-right: auto;
+	background: orange;
+}
+
+.beian a{
+	text-decoration: none;
+	color: red;
+}
