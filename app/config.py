@@ -2,6 +2,7 @@ import os
 import pymysql
 class Config(object):
     SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:00929.@127.0.0.1:3307/myblog'
+    # SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://myblog:00929.@127.0.0.1:3306/myblog'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ECHO = False
     XD_USER_DIR = "static/uploads/users"
@@ -14,6 +15,10 @@ class Config(object):
     DEFAULT_USER_LOGO = "default.png"
     DEFAULT_BLOG_LOGO = "default_blog.png"
     DEGAULT_TAG_ID = 1
+    EXPIRES_IN = 3600
+    # WTF_CSRF_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
+    REDIS_HISTORY = "histories"
+    HISTORY_MAX_LEN = 10
 
     SECRET_KEY = 'dog'
 
