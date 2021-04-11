@@ -24,7 +24,7 @@
 >+ V1.1
 >+ 更新时间：2021-4-11
 
-+ ###功能
++ ### 功能
 + 用户注册、登陆、个人信息修改
 + 博客预览、上传、编辑
 + 博客浏览、搜索
@@ -167,7 +167,7 @@ python manage.py runserver
  /tm/v3/  | 弹幕接口 |  (get)弹幕接口id：'id'<br>(post)添加的弹幕内容:略 | 状态码：'code'<br>弹幕内容：'danmaku'
  /delVideo  | 评论提交 |  评论内容：'comment'，评论地址:'url' | 状态码：'isSuccess'
  
- + ###管理员界面(路由均需加上'/admin')
+ + ### 管理员界面(路由均需加上'/admin')
  
  项目页面  | 描述  | 链接 | 参数
  ---- | ----- | ------  | ------  
@@ -208,7 +208,7 @@ python manage.py runserver
 >+ 目前项目安全细节尚未完善
 
 
-+ ### 2021.4.11更新
+### 2021.4.11更新
 >+ 项目部署在阿里云上(公安局审批还没搞)
 >+ nginx+uwsgi+flask
 >+ 域名：[http://lingshipu.ren](http://lingshipu.ren/)
