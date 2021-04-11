@@ -1,0 +1,39 @@
+{% extends 'home/index.html'%}
+
+{% block content %}
+
+<div class="Blog_manage_div">
+<div class="blog_blank2">
+    <table class="blog_manage_table">
+        <div class="blog_manage_item">
+            <tr>
+                <th class="blog_manage_item_content">序号</th>
+                <th class="blog_manage_item_content">博客标题</th>
+                <th class="blog_manage_item_content">评论内容</th>
+                <th class="blog_manage_item_content">操作</th>
+            </tr>
+        </div>
+    {% for i in range(params['comments_len']): %}
+    <div class="blog_manage_item">
+        <tr class="blog_text_decoraction">
+            <td><span class="blog_manage_item_index">{{ i+1 }}</span></td>
+            <td>
+                <a href="{{ url_for('home.blogs',blog_id=params['comments'][i]['blog_id'],page=1) }}">
+                    <span class="blog_manage_item_content">{{ params['comments'][i]['blog_name'] }}</span>
+                </a>
+            </td>
+            <td><span class="blog_manage_item_content">{{ params['comments'][i]['content'] }}</span></td>
+            <td>
+                <a href="javascript:;" onclick="DelComment({{session['id']}},{{ params['comments'][i]['comt_id'] }})">
+                <span class="blog_manage_item_content">删除</span>
+                </a>
+            </td>
+
+        </tr>
+    </div>
+    {% endfor %}
+    </table>
+    </div>
+</div>
+
+{% endblock %}

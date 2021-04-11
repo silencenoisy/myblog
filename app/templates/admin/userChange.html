@@ -1,0 +1,35 @@
+{% extends 'admin/adminhome.html' %}
+
+{% block content2 %}
+
+<div class="newBlog_warp">
+    <div class="blog_blank"></div>
+    <div class="login-item"><span class="login_text">用户名</span>
+        <input type="text" class="InputUserName" value="{{ params['user']['name'] }}"placeholder="请输入用户名"/></div>
+    <div class="login-item"><span class="login_text">：<span
+            style="color: red"></span></span>
+    </div>
+    <div class="login-item">
+        <span class="login_text">头像</span>
+        <img src="{{ url_for('static',filename='uploads/users/'+params['user']['headUrl']) }}"
+             id="user_head_pic" class="user_head_pic" onclick="ClickInputHead()">
+        <div>
+            <input type="file" id="InputHead" class="InputHead hide" accept="image/jpg,image/jpeg,image/png,image/PNG"
+                   onchange="upload_head()"/>
+        </div>
+    </div>
+    <div class="login-item"><span class="login_text">新密码</span> <input type="password" class="InputPWD1"
+                                                                       placeholder="请输入新密码"/></div>
+    <div class="login-item"><span class="login_text">确认密码</span> <input type="password" class="InputPWD2"
+                                                                        placeholder="确认密码"/></div>
+    <div class="login-item"><span class="login_text">个人介绍</span> <input type="text" class="InputITD"
+                                                                        placeholder="个人介绍"
+                                                                        value="{{ params['user']['introduce'] }}"/></div>
+    <div class="login-item"><a href="javascript:;" onclick="AdminChangeUser({{ params['user']['id'] }})">修改信息</a></div>
+    <div class="List_wrap">
+        <div class="List_item">
+        </div>
+    </div>
+</div>
+
+{% endblock %}

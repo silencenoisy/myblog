@@ -1,0 +1,120 @@
+{% import "ul/usermenu.html" as macros %}
+{% extends 'home/index.html' %}
+
+{% block content %}
+
+<script src="{{ url_for('static',filename='dplayer/dist/DPlayer.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/dplayer@1.25.0/dist/DPlayer.min.js"></script>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+<div class="one_blog">
+
+    <div class="Blog_manage_div blog-content">
+        <div class="blog_blank2">
+            <div class="title_blog newBlog_warp"><span class="blog_title_text">{{ params['title'] }}</span></div>
+            <div class="tag_in_blog newBlog_warp">标签：{{ params['tag'] }}</div>
+            <br>
+            <div id="blog_inner_text"></div>
+            {% for i in range(params['videos_len']) %}
+            <div class="video_play">
+                <span class="highLightWord">{{i+1}}</span>
+                <div id="dplayer{{params['videos'][i]['id']}}" class="dplayers"></div>
+            </div>
+            <script>
+                var varname = "dp_{{params['videos'][i]['id']}}";
+                var ids = "dplayer{{params['videos'][i]['id']}}"
+                window[varname] = new DPlayer({
+                    container: document.getElementById(ids),
+                    mutex:false,
+                    video: {
+                        url: "{{ url_for('static',filename='uploads/blogs/'+params['videos'][i]['name']) }}"
+                    },
+                    danmaku: {
+                        id: "{{ params['videos'][i]['id'] }}",
+                        api: '/tm/'
+                    }
+
+                });
+            </script>
+            {% endfor %}
+            <div id="temp_div" class="hide">{{ params['blog_html'] }}</div>
+            <script>
+                $("#blog_inner_text").html(document.getElementById('temp_div').innerText);
+            </script>
+        </div>
+    </div>
+    <div>
+        <div class="blog_blank"></div>
+        <div class="blog_items_pic">
+            {% if 'username' not in session %}
+            <a href="javascript:;" id="like_point" onclick="ShowLoginText()">
+                {% else %}
+                <a href="javascript:;" id="like_point" onclick="LikeThis()">
+                    {% endif %}
+                    {% if params['isLike']: %}
+                    <img id="like_pic" src="{{ url_for('static', filename='images/bkw.png' ) }}">
+                    {% else %}
+                    <img id="like_pic" src="{{ url_for('static', filename='images/bkx.png' ) }}">
+                    {% endif %}
+                    <span id="like_span" style="color: red;font-size: large">{{ params['like'] }}</span>
+        </div>
+        <div class="blog_items_pic" id="col_div">
+            {% if 'username' not in session %}
+            <a href="javascript:;" id="col_point" onclick="ShowLoginText()">
+                {% else %}
+                <a href="javascript:;" id="col_point" onclick="ColThis()">
+                    {% endif %}
+
+                    {% if params['isCollection']: %}
+                    <img id="col_pic" src="{{ url_for('static', filename='images/bky.png' ) }}">
+                    {% else %}
+                    <img id="col_pic" src="{{ url_for('static', filename='images/bkz.png' ) }}">
+                    {% endif %}
+                </a>
+                <span id="col_span" style="color: red;font-size: large">{{ params['collection'] }}</span>
+        </div>
+        <div class="blog_items_pic backNone">
+            <table>
+                {% if session['id']: %}
+                <tr>
+                    <div class="search-wrap">
+                        <input type="text" class="InputSearch InputIComment" placeholder="评论"/>
+                        <a href="javascript:;" id="comment_point" onclick="CommentThis()">
+                            <img id="comment_pic" class="SearchImg"
+                                 src="{{ url_for('static', filename='images/bkf.png' ) }}">
+                        </a>
+                    </div>
+
+                </tr>
+                <tr>
+                    <div>
+
+                        {% else %}
+                        <span class="comment_login_require">评论请先<a href="javascript:;" class="login_text"
+                                                                   onclick="ShowLoginText()">登陆</a></span>
+                        {% endif %}
+                    </div>
+                </tr>
+            </table>
+        </div>
+        <div class="comments">
+            {% for i in params['comments'] %}
+            <div class="one_comment">
+                <img class="top_user_head" src="{{ url_for('static',filename='uploads/users/'+i['comerHead']) }}">
+                <span class="comer_name">{{ i['comer'] }}</span>
+                {% if i['isAuthor'] %}
+                <span class="comer_tag">楼主</span>
+                {% endif %}
+                <span class="comer_tag">评论时间：{{ i['addtime'] }}</span>
+                <span class="comment_content">{{ i['comment'] }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="pagination one_comment">
+        {{ macros.ul_page(params['pagination'], '.blogs',**params['url_params']) }}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

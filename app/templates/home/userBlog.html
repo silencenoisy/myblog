@@ -1,0 +1,31 @@
+{% extends 'home/index.html' %}
+
+{% block content %}
+
+<div class="Blog_manage_div">
+<div class="blog_blank2">
+    <table class="blog_manage_table">
+        <div class="blog_manage_item">
+            <tr>
+                <th class="blog_manage_item_content">序号</th>
+                <th class="blog_manage_item_content">标题</th>
+                <th class="blog_manage_item_content" colspan="3">操作</th>
+            </tr>
+        </div>
+    {% for i in range(1,params['len']+1): %}
+    <div class="blog_manage_item">
+        <tr class="blog_text_decoraction" >
+            <td><span class="blog_manage_item_index">{{ i }}</span></td>
+            <td><span class="blog_manage_item_content">{{ params['blogs'][i-1].title }}</span></td>
+            <td><a href="{{ url_for('home.blogs',blog_id = params['blogs'][i-1].id,page=1) }}"><span class="blog_manage_item_content">查看</span></a></td>
+            <td><a href="javascript:;" onclick="DelBlog({{params['blogs'][i-1].id}},{{session['id']}})"><span class="blog_manage_item_content">删除</span></a></td>
+            <td><a href="{{ url_for('home.newBlog',blog_id = params['blogs'][i-1].id,user_id=session['id']) }}"><span class="blog_manage_item_content">修改</span></a></td>
+
+        </tr>
+    </div>
+    {% endfor %}
+    </table>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>后台管理</title>
+    <link rel="icon" href="{{ url_for('static',filename='images/adminicon.png') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/normalize.css') }}"/>
+
+    <!--必要样式-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/component.css') }}"/>
+    <script src="{{ url_for('static',filename='js/jQuery.min.js') }}"></script>
+    <!--[if IE]>
+    <script src="{{ url_for('static',filename='js/html5.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/layer.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/login.js') }}"></script>
+    <![endif]-->
+</head>
+<body>
+<script type="text/javascript">
+
+</script>
+<div id="header">
+    <div id="header-con" class="top_warp">
+        <a href="{{ url_for('admin.index') }}"><img class="head_pic"
+                                                    src="{{ url_for('static',filename='images/admin_head.png') }}"></a>
+        <a href="{{ url_for('home.index') }}"><img class="head_pic"
+                                                   src="{{ url_for('static',filename='images/head1.png') }}"></a>
+        {% if 'username' not in session %}
+        <div><a href="{{ url_for('admin.login') }}">登录</a></div>
+        {% else %}
+        <div><a href="javascript:;" onclick="MyLogout()">登出</a></div>
+        <div><a href="{{ url_for('admin.index') }}">
+            <img class="top_user_head" src="{{ url_for('static',filename='uploads/users/'+session['headName']) }}">
+            {{ session['username'] }}
+        </a>
+        </div>
+
+        {% endif %}
+    </div>
+</div>
+<div class="container demo-1">
+    <div class="content">
+        <div id="large-header" class="large-header">
+            <canvas id="demo-canvas"></canvas>
+            <!--                    <div class="wrap">-->
+
+            {% block content %}
+
+            {% endblock %}
+            <!--                    </div>-->
+        </div>
+    </div>
+    <div class="beian">
+    <span>Copyright © 2021 Yu Runding. All rights reserved.</span>
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备2021004412号-1</a>
+</div>
+</div>
+
+<script src="{{ url_for('static',filename='js/TweenLite.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/EasePack.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/rAF.js') }}"></script>
+<script src="{{ url_for('static',filename='js/demo-1.js') }}"></script>
+<script src="{{ url_for('static',filename='js/admin.js') }}"></script>
+<script src="{{ url_for('static',filename='js/login.js') }}"></script>
+<script src="{{ url_for('static',filename='js/jQuery.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/layer.js') }}"></script>
+</body>
+</html>

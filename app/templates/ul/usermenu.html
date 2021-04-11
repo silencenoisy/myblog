@@ -1,0 +1,44 @@
+{% macro ul_page(pagination,url) %}
+<nav>
+    <ul class="ul_menu">
+        {% if pagination.pages>0 and pagination.page!=1: %}
+        <a class="page_link" href="{{ url_for(url,page=1, **kwargs) }}">首页</a>
+        {% else: %}
+            <a class="disabled page_link" href="#">首页</a>
+        {% endif %}
+        {% if pagination.has_prev: %}
+        <a class="page_link" href="{{ url_for(url,page=pagination.prev_num, **kwargs) }}">上一页</a>
+        {% else: %}
+            <a class="disabled page_link" href="#">上一页</a>
+        {% endif %}
+
+
+
+        {%- for page in pagination.iter_pages() %}
+                {% if page %}
+                  {% if page != pagination.page %}
+                    <a href="{{ url_for(url, page=page, **kwargs) }}">{{ page }}</a>
+                  {% else %}
+                    <strong>{{ page }}</strong>
+                  {% endif %}
+                {% else %}
+                  <span class=ellipsis>…</span>
+                {% endif %}
+              {%- endfor %}
+
+        {% if pagination.has_next: %}
+        <a class="page_link" href="{{ url_for(url,page=pagination.next_num, **kwargs) }}">下一页</a>
+        {% else: %}
+            <a class="disabled page_link" href="#">下一页</a>
+        {% endif %}
+
+        {% if pagination.pages>0 and pagination.page!=pagination.pages: %}
+        <a class="page_link" href="{{ url_for(url,page=pagination.pages, **kwargs) }}">末页</a>
+        {% else: %}
+            <a class="disabled page_link" href="#">末页</a>
+        {% endif %}
+    </ul>
+
+</nav>
+
+{% endmacro %}
